@@ -2,15 +2,15 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    public Rigidbody2D playerRigidbody;
-    public GameObject player;
-    public ParticleSystem dash;
-    public ParticleSystem movementparticles;
+    [SerializeField] private Rigidbody2D playerRigidbody;
+    [SerializeField] private GameObject player;
+    [SerializeField] private ParticleSystem dash;
+    [SerializeField] private ParticleSystem movementparticles;
 
-    public float speed = 10f;
-    public float acceleration = 10f;
-    public float deceleration = 10f;
-    public float dashCooldown = 1f; // 1 second cooldown for the dash
+    [SerializeField] private float speed = 10f;
+    [SerializeField] private float acceleration = 10f;
+    [SerializeField] private float deceleration = 10f;
+    [SerializeField] private float dashCooldown = 1f; // 1 second cooldown for the dash
 
     private bool facingLeft = true;
     private Vector2 currentVelocity = Vector2.zero;
@@ -52,7 +52,6 @@ public class Player : MonoBehaviour
 
         //velocity with acceleration and deceleration
         currentVelocity = Vector2.Lerp(playerRigidbody.linearVelocity, targetVelocity, (targetVelocity != Vector2.zero ? acceleration : deceleration) * Time.deltaTime);
-
         playerRigidbody.linearVelocity = currentVelocity;
 
         // Dash with cooldown
@@ -61,7 +60,6 @@ public class Player : MonoBehaviour
             dash.Play();
             Vector2 dashDirection = facingLeft ? Vector2.left : Vector2.right;
             playerRigidbody.AddForce(dashDirection * speed * 5f, ForceMode2D.Impulse);
-
             nextDashTime = Time.time + dashCooldown; // set next allowed dash
         }
 

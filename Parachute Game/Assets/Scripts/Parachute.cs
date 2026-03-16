@@ -9,11 +9,7 @@ public class Parachute : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-
-        // Pick random direction at spawn
-        direction = Random.value < 0.5f ? -1 : 1;
-
-        // Random horizontal speed
+        direction = Random.value < 0.5f ? -1 : 1; // Pick random direction at spawn
         horizontalSpeed = Random.Range(0.5f, 1f);
     }
 
@@ -31,20 +27,20 @@ public class Parachute : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             DestroyParachute(false);
-            ScoreManager.Instance.AddPoint(); // add a point
+            ScoreManager.Instance.AddPoint();
         }
         else if (other.CompareTag("Floor"))
         {
-            DestroyParachute(true); // spawn splash
-            ScoreManager.Instance.GetDamage(); // take a point of damage
+            DestroyParachute(true);
+            ScoreManager.Instance.GetDamage();
         }
         else if (other.CompareTag("Wall"))
         {
-            direction *= -1; // reverse direction of parachute when it hits a wall
+            direction *= -1;
         }
     }
 
-    void DestroyParachute(bool hitFloor) // check if it hit the floor to spawn splash
+    void DestroyParachute(bool hitFloor)
     {
         ParachuteManager manager = Object.FindFirstObjectByType<ParachuteManager>();
         if (manager != null)

@@ -4,16 +4,16 @@ using UnityEngine;
 
 public class ParachuteManager : MonoBehaviour
 {
-    public GameObject parachutePrefab;
-    public ParticleSystem ParachuteDieSplash;
+    [SerializeField] private GameObject parachutePrefab;
+    [SerializeField] private ParticleSystem ParachuteDieSplash;
 
-    public Transform spawnPoint;
-    public GameObject floor;
-    public GameObject player;
+    [SerializeField] private Transform spawnPoint;
+    [SerializeField] private GameObject floor;
+    [SerializeField] private GameObject player;
 
-    public int maxParachutes = 4;
-    public float spawnDelay = 1f;
-    public float spawnWidth = 19f; // how far left or right they can spawn
+    [SerializeField] private int maxParachutes = 4;
+    [SerializeField] private float spawnDelay = 1f;
+    [SerializeField] private float spawnWidth = 19f; // how far left or right they can spawn
 
     private List<GameObject> activeParachutes = new List<GameObject>();
 

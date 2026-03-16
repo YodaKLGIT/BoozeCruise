@@ -3,9 +3,9 @@ using UnityEngine;
 
 public class ScoreManager : MonoBehaviour
 {
-    public static ScoreManager Instance;
-    public TextMeshProUGUI scoreText;
-    public TextMeshProUGUI HealthText;
+    [SerializeField] private static ScoreManager Instance;
+    [SerializeField] private TextMeshProUGUI scoreText;
+    [SerializeField] private TextMeshProUGUI HealthText;
 
     public static int score = 0; // static so other scene can read it
     private int health = 3;
