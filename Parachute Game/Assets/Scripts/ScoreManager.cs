@@ -1,3 +1,4 @@
+using System;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -7,7 +8,8 @@ public class ScoreManager : MonoBehaviour
     public static ScoreManager Instance;
     [SerializeField] private TextMeshProUGUI scoreText;
     [SerializeField] private TextMeshProUGUI HealthText;
-    [SerializeField] private Image healthBarFill;
+
+    public static event Action OnPointAdded;
 
     public static int score = 0;
     private int health = 3;
@@ -21,10 +23,8 @@ public class ScoreManager : MonoBehaviour
     {
         UpdateScoreCount();
         UpdateHealthCount();
-        HealthbarUpdate();
     }
-
-    // Update score display
+    
     void UpdateScoreCount()
     {
         if (scoreText != null)
@@ -33,7 +33,6 @@ public class ScoreManager : MonoBehaviour
         }
     }
 
-    // Update health display
     void UpdateHealthCount()
     {
         if (HealthText != null)
@@ -42,7 +41,6 @@ public class ScoreManager : MonoBehaviour
         }
     }
 
-    // Decrease health by 1 and check for game over
     public void GetDamage()
     {
         health--;
@@ -52,18 +50,10 @@ public class ScoreManager : MonoBehaviour
         }
     }
 
-    // Increase score by 1
     public void AddPoint()
     {
         score++;
+        OnPointAdded?.Invoke();
         UpdateScoreCount();
-    }
-
-    public void HealthbarUpdate()
-    {
-        if (healthBarFill != null)
-        {
-            healthBarFill.fillAmount = 1;
-        }
     }
 }

@@ -849,6 +849,8 @@ GameObject:
   - component: {fileID: 338474866}
   - component: {fileID: 338474867}
   - component: {fileID: 338474868}
+  - component: {fileID: 338474870}
+  - component: {fileID: 338474871}
   - component: {fileID: 338474869}
   m_Layer: 0
   m_Name: Game Manager
@@ -896,7 +898,7 @@ MonoBehaviour:
   floor: {fileID: 1404597878}
   player: {fileID: 335866932}
   maxParachutes: 3
-  spawnDelay: 1
+  spawnDelay: 0.5
   spawnWidth: 4
 --- !u!114 &338474868
 MonoBehaviour:
@@ -912,7 +914,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   scoreText: {fileID: 1559406219}
   HealthText: {fileID: 130072076}
-  healthBarFill: {fileID: 2059749368}
 --- !u!114 &338474869
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -926,6 +927,36 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   State: 0
+--- !u!114 &338474870
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 338474865}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2034e0215a976e4408ad8afaf485dc2c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  drunkBarFill: {fileID: 2059749368}
+  drunkValue: 0
+  drainSpeed: 0.17
+  addAmount: 0.2
+--- !u!114 &338474871
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 338474865}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f65172d8c8022a04faf2bac799a6ef98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  globalVolume: {fileID: 255011378}
+  transitionSpeed: 0.2
 --- !u!1 &472220315
 GameObject:
   m_ObjectHideFlags: 0

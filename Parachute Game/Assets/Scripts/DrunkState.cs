@@ -32,7 +32,7 @@ public class DrunkState : MonoBehaviour
                 break;
         }
 
-        OnDrunkenStateChanged.Invoke(newState);
+        OnDrunkenStateChanged?.Invoke(newState);
     }
 }
 
