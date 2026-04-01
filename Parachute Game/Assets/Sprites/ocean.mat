@@ -99,7 +99,7 @@ Material:
     - _Cull: 0
     - _DISABLEEROSION: 0
     - _Desaturate: 0
-    - _DistortionIntensity: 0.69
+    - _DistortionIntensity: 0.65
     - _DstBlend: 10
     - _EnableExternalAlpha: 0
     - _FRESNEL: 0

@@ -1,13 +1,15 @@
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ScoreManager : MonoBehaviour
 {
-    [SerializeField] private static ScoreManager Instance;
+    public static ScoreManager Instance;
     [SerializeField] private TextMeshProUGUI scoreText;
     [SerializeField] private TextMeshProUGUI HealthText;
+    [SerializeField] private Image healthBarFill;
 
-    public static int score = 0; // static so other scene can read it
+    public static int score = 0;
     private int health = 3;
 
     private void Awake()
@@ -19,6 +21,7 @@ public class ScoreManager : MonoBehaviour
     {
         UpdateScoreCount();
         UpdateHealthCount();
+        HealthbarUpdate();
     }
 
     // Update score display
@@ -54,5 +57,13 @@ public class ScoreManager : MonoBehaviour
     {
         score++;
         UpdateScoreCount();
+    }
+
+    public void HealthbarUpdate()
+    {
+        if (healthBarFill != null)
+        {
+            healthBarFill.fillAmount = 1;
+        }
     }
 }

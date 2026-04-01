@@ -18,16 +18,15 @@ public class Parachute : MonoBehaviour
         rb.linearVelocity = new Vector2(direction * horizontalSpeed, rb.linearVelocity.y);
     }
 
-
-    // Collision checks for different objects
     void OnTriggerEnter2D(Collider2D other)
     {
-        Debug.Log("Parachute hit: " + other.name);
+        //Debug.Log("Parachute hit: " + other.name);
 
         if (other.CompareTag("Player"))
         {
             DestroyParachute(false);
             ScoreManager.Instance.AddPoint();
+            
         }
         else if (other.CompareTag("Floor"))
         {
