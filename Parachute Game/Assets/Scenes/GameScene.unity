@@ -956,7 +956,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   globalVolume: {fileID: 255011378}
-  transitionSpeed: 0.2
+  transitionSpeed: 0.1
 --- !u!1 &472220315
 GameObject:
   m_ObjectHideFlags: 0

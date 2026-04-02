@@ -44,7 +44,7 @@ public class DrunkManager : MonoBehaviour
 
     void UpdateDrunkState()
     {
-        if (DrunkState.Instance == null) return;
+        if (DrunkStateMachine.Instance == null) return;
 
         DrunkenState newState;
 
@@ -55,9 +55,9 @@ public class DrunkManager : MonoBehaviour
         else
             newState = DrunkenState.Drunk;
 
-        if (DrunkState.Instance.State != newState)
+        if (DrunkStateMachine.Instance.State != newState)
         {
-            DrunkState.Instance.UpdateDrunkenState(newState);
+            DrunkStateMachine.Instance.UpdateDrunkenState(newState);
         }
     }
 }

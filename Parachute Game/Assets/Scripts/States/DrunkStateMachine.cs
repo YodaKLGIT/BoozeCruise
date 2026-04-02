@@ -1,9 +1,9 @@
 using System;
 using UnityEngine;
 
-public class DrunkState : MonoBehaviour
+public class DrunkStateMachine : MonoBehaviour
 {
-    public static DrunkState Instance;
+    public static DrunkStateMachine Instance;
     public DrunkenState State;
 
     public static event Action<DrunkenState> OnDrunkenStateChanged;

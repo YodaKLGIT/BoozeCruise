@@ -23,12 +23,12 @@ public class DrunkPostProcessing : MonoBehaviour
 
     private void OnEnable()
     {
-        DrunkState.OnDrunkenStateChanged += OnDrunkStateChanged;
+        DrunkStateMachine.OnDrunkenStateChanged += OnDrunkStateChanged;
     }
 
     private void OnDisable()
     {
-        DrunkState.OnDrunkenStateChanged -= OnDrunkStateChanged;
+        DrunkStateMachine.OnDrunkenStateChanged -= OnDrunkStateChanged;
     }
 
     private void Update()
