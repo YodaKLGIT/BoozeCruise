@@ -9,6 +9,12 @@ public class DrunkManager : MonoBehaviour
     [SerializeField] private float drainSpeed = 0.1f;
     [SerializeField] private float addAmount = 0.2f;
 
+    public static DrunkManager Instance;
+    private void Awake()
+    {
+        Instance = this;
+    }
+
     private void OnEnable()
     {
         ScoreManager.OnPointAdded += HandlePointAdded;
@@ -22,7 +28,11 @@ public class DrunkManager : MonoBehaviour
     void Update()
     {
         DrainDrunkness();
-        UpdateDrunkState();
+
+        if (DrunkStateMachine.Instance != null)
+        {
+            DrunkStateMachine.Instance.SetStateFromValue(drunkValue);
+        }
     }
 
     void HandlePointAdded()
@@ -42,22 +52,19 @@ public class DrunkManager : MonoBehaviour
         }
     }
 
-    void UpdateDrunkState()
+    public float GetDrunkValue()
     {
-        if (DrunkStateMachine.Instance == null) return;
+        return drunkValue;
+    }
 
-        DrunkenState newState;
+    public void ReduceDrunkValue(float amount)
+    {
+        drunkValue -= amount;
+        drunkValue = Mathf.Clamp01(drunkValue);
 
-        if (drunkValue < 0.25f)
-            newState = DrunkenState.Sober;
-        else if (drunkValue < 0.75f)
-            newState = DrunkenState.Tipsy;
-        else
-            newState = DrunkenState.Drunk;
-
-        if (DrunkStateMachine.Instance.State != newState)
+        if (drunkBarFill != null)
         {
-            DrunkStateMachine.Instance.UpdateDrunkenState(newState);
+            drunkBarFill.fillAmount = drunkValue;
         }
     }
 }

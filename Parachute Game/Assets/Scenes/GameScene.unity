@@ -663,6 +663,7 @@ GameObject:
   - component: {fileID: 335866933}
   - component: {fileID: 335866937}
   - component: {fileID: 335866936}
+  - component: {fileID: 335866938}
   - component: {fileID: 335866935}
   - component: {fileID: 335866934}
   m_Layer: 0
@@ -838,6 +839,22 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &335866938
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 335866932}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2034e0215a976e4408ad8afaf485dc2c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  drunkBarFill: {fileID: 2059749368}
+  drunkValue: 0
+  drainSpeed: 0.1
+  addAmount: 0.2
 --- !u!1 &338474865
 GameObject:
   m_ObjectHideFlags: 0
@@ -849,7 +866,6 @@ GameObject:
   - component: {fileID: 338474866}
   - component: {fileID: 338474867}
   - component: {fileID: 338474868}
-  - component: {fileID: 338474870}
   - component: {fileID: 338474871}
   - component: {fileID: 338474869}
   m_Layer: 0
@@ -898,7 +914,7 @@ MonoBehaviour:
   floor: {fileID: 1404597878}
   player: {fileID: 335866932}
   maxParachutes: 3
-  spawnDelay: 0.5
+  spawnDelay: 1
   spawnWidth: 4
 --- !u!114 &338474868
 MonoBehaviour:
@@ -926,23 +942,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 688ca219032d5424cb7142e7a5dfc5c4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  State: 0
---- !u!114 &338474870
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 338474865}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2034e0215a976e4408ad8afaf485dc2c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  drunkBarFill: {fileID: 2059749368}
-  drunkValue: 0
-  drainSpeed: 0.17
-  addAmount: 0.2
 --- !u!114 &338474871
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5820,7 +5819,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -0.56, y: 1.02, z: 0}
-  m_LocalScale: {x: 0.1, y: 9.43, z: 0.1}
+  m_LocalScale: {x: 0.1, y: 35.48, z: 0.1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 338474866}
@@ -6981,6 +6980,7 @@ GameObject:
   - component: {fileID: 1081931068}
   - component: {fileID: 1081931067}
   - component: {fileID: 1081931066}
+  - component: {fileID: 1081931070}
   m_Layer: 0
   m_Name: Camera
   m_TagString: Untagged
@@ -7106,6 +7106,21 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1081931070
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1081931065}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 48e5b6d0e09d56c46be2baeb1839f1b5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  wobbleSpeed: 1
+  rotationAmount: 3
+  positionAmount: 0.075
 --- !u!1 &1121877190
 GameObject:
   m_ObjectHideFlags: 0
@@ -12239,7 +12254,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 3.555, y: 1.02, z: 0}
-  m_LocalScale: {x: 0.1, y: 9.43, z: 0.1}
+  m_LocalScale: {x: 0.1, y: 35.48, z: 0.1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 338474866}
@@ -12552,7 +12567,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 1.68, y: 0.075, z: 0}
-  m_LocalScale: {x: 7.5, y: 0.5, z: 0.5}
+  m_LocalScale: {x: 122.45, y: 0.5, z: 0.5}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 338474866}

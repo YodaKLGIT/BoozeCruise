@@ -32,6 +32,12 @@ public class Player : MonoBehaviour
 
     void PlayerMovement()
     {
+        if (DrunkManager.Instance == null)
+        {
+            Debug.LogError("DrunkManager.Instance is null!");
+            return;
+        }
+
         Vector2 targetVelocity = Vector2.zero;
         bool isMoving = false;
 
@@ -57,10 +63,20 @@ public class Player : MonoBehaviour
         // Dash with cooldown
         if (Input.GetKeyDown(KeyCode.Space) && Time.time >= nextDashTime)
         {
-            dash.Play();
-            Vector2 dashDirection = facingLeft ? Vector2.left : Vector2.right;
-            playerRigidbody.AddForce(dashDirection * speed * 5f, ForceMode2D.Impulse);
-            nextDashTime = Time.time + dashCooldown; // set next allowed dash
+            if (DrunkManager.Instance != null && DrunkManager.Instance.GetDrunkValue() >= 0.25f)
+            {
+                if (dash != null)
+                    dash.Play();
+
+                if (playerRigidbody != null)
+                {
+                    Vector2 dashDirection = facingLeft ? Vector2.left : Vector2.right;
+                    playerRigidbody.AddForce(dashDirection * speed * 5f, ForceMode2D.Impulse);
+                }
+
+                DrunkManager.Instance.ReduceDrunkValue(0.25f);
+                nextDashTime = Time.time + dashCooldown;
+            }
         }
 
         // Toggle movement particles
