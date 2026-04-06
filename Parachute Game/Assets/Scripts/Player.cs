@@ -10,13 +10,13 @@ public class Player : MonoBehaviour
     [SerializeField] private float speed = 10f;
     [SerializeField] private float acceleration = 10f;
     [SerializeField] private float deceleration = 10f;
-    [SerializeField] private float dashCooldown = 1f; // 1 second cooldown for the dash
+    [SerializeField] private float dashCooldown = 1f;
 
     private bool facingLeft = true;
     private Vector2 currentVelocity = Vector2.zero;
 
     private ParticleSystem.EmissionModule movementEmission;
-    private float nextDashTime = 0f; // when the player can dash again
+    private float nextDashTime = 0f;
 
     void Start()
     {

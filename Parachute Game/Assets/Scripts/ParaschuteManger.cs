@@ -22,7 +22,6 @@ public class ParachuteManager : MonoBehaviour
         StartCoroutine(SpawnLoop());
     }
 
-    // Coroutine to spawn parachutes at intervals
     IEnumerator SpawnLoop()
     {
         while (true)
@@ -48,7 +47,6 @@ public class ParachuteManager : MonoBehaviour
         activeParachutes.Add(parachute);
     }
 
-    // hitFloor = true only if it hit the floor
     public void RemoveParachute(GameObject parachute, bool hitFloor)
     {
         if (parachute == null) return;
